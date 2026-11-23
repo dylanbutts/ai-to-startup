@@ -68,6 +68,7 @@ a { color: inherit; }
 }
 
 .header-link:hover { color: var(--green); }
+.header-nav { display: flex; align-items: center; gap: 22px; }
 
 .hero {
   width: min(1120px, calc(100% - 64px));
@@ -559,6 +560,224 @@ h1, h2, h3, p { margin-top: 0; }
 .house-status { margin-top: 5px; display: block; color: var(--muted); font-size: 10px; }
 .house-card.is-joined .house-status { color: var(--green); font-weight: 700; }
 
+.crew-main {
+  width: min(1120px, calc(100% - 64px));
+  margin: 0 auto;
+  padding: 42px 0 72px;
+}
+
+.crew-intro {
+  max-width: 720px;
+  margin-bottom: 34px;
+}
+
+.crew-intro h1 {
+  margin-bottom: 14px;
+  font-family: var(--serif);
+  font-size: clamp(48px, 7vw, 68px);
+  font-weight: 400;
+  letter-spacing: -3px;
+  line-height: 1;
+}
+
+.crew-intro h1 span { color: var(--green); font-style: italic; }
+.crew-intro > p:last-child {
+  max-width: 590px;
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.crew-summary {
+  margin-bottom: 18px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.crew-summary-card,
+.crew-section,
+.street-bookings {
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--white);
+}
+
+.crew-summary-card {
+  min-height: 132px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.crew-summary-card strong {
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: -1px;
+}
+
+.crew-summary-card p {
+  margin: 7px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.crew-summary-card.highlight {
+  background: #edf2e3;
+  border-color: #d4dfc4;
+}
+
+.crew-grid {
+  margin-bottom: 18px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.crew-section {
+  padding: 22px;
+}
+
+.crew-section-heading {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.crew-section-heading h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 27px;
+  font-weight: 400;
+  letter-spacing: -0.8px;
+}
+
+.week-tag {
+  padding: 6px 9px;
+  border-radius: 20px;
+  background: #edf1e4;
+  color: var(--green);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.chart-block + .chart-block { margin-top: 22px; }
+.chart-title {
+  margin-bottom: 10px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.chart-row {
+  min-height: 25px;
+  display: grid;
+  grid-template-columns: 38px 1fr 42px;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+}
+
+.chart-row-label { color: var(--muted); }
+.chart-track {
+  height: 9px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #edf0e7;
+}
+
+.chart-bar {
+  height: 100%;
+  border-radius: inherit;
+  background: #aebaa1;
+}
+
+.crew-section.grouped .chart-bar { background: #718f5b; }
+.chart-value { font-weight: 750; text-align: right; }
+
+.comparison-callout {
+  margin-top: 20px;
+  padding: 13px 14px;
+  border-left: 3px solid #9db97d;
+  background: #f4f6ed;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.comparison-callout strong { color: var(--ink); }
+
+.street-bookings {
+  overflow: hidden;
+}
+
+.street-bookings-heading {
+  padding: 20px 22px 13px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.street-bookings-heading h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 27px;
+  font-weight: 400;
+  letter-spacing: -0.8px;
+}
+
+.street-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.street-table th,
+.street-table td {
+  padding: 13px 22px;
+  border-top: 1px solid var(--line);
+  text-align: left;
+}
+
+.street-table th {
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+}
+
+.street-table td:not(:first-child),
+.street-table th:not(:first-child) { text-align: right; }
+.street-table tr:last-child { background: #f5f7ef; }
+.street-table tr:last-child td { font-weight: 800; }
+
+.table-scroll {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-scroll:focus-visible {
+  outline: 3px solid #9db97d;
+  outline-offset: -3px;
+}
+
+.table-scroll .street-table { min-width: 420px; }
+.crew-day-booking { margin-top: 18px; }
+.crew-day-booking .street-table { min-width: 480px; }
+
 @media (min-width: 1200px) {
   .hero { min-height: 570px; }
   .neighbourhood { height: 415px; }
@@ -566,6 +785,7 @@ h1, h2, h3, p { margin-top: 0; }
 
 @media (max-width: 760px) {
   .site-header { width: calc(100% - 40px); height: 72px; }
+  .header-nav { justify-content: flex-end; gap: 12px; }
   .hero {
     width: calc(100% - 40px);
     padding: 28px 0 48px;
@@ -596,11 +816,18 @@ h1, h2, h3, p { margin-top: 0; }
   .stat-card { padding: 16px; }
   .progress-card { margin-bottom: 34px; padding: 16px; }
   .house-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9px; }
+  .crew-main { width: calc(100% - 40px); padding: 34px 0 56px; }
+  .crew-intro { margin-bottom: 27px; }
+  .crew-summary { grid-template-columns: repeat(2, 1fr); }
+  .crew-grid { grid-template-columns: 1fr; }
+  .street-table th,
+  .street-table td { padding-right: 14px; padding-left: 14px; }
 }
 
 @media (max-width: 420px) {
   .wordmark { font-size: 17px; }
-  .header-link { font-size: 12px; }
+  .header-link { font-size: 11px; }
+  .header-nav { max-width: 170px; flex-wrap: wrap; gap: 5px 8px; }
   .hero .eyebrow { font-size: 9px; letter-spacing: 1.1px; }
   .hero h1 { font-size: 54px; }
   .neighbourhood { height: 300px; }
@@ -627,6 +854,18 @@ h1, h2, h3, p { margin-top: 0; }
   .homes-heading h2 { font-size: 30px; }
   .invite-button { width: 100%; }
   .progress-copy { align-items: flex-start; flex-direction: column; gap: 8px; }
+  .crew-main { width: calc(100% - 32px); }
+  .crew-intro h1 { font-size: 50px; }
+  .crew-summary { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .crew-summary-card { min-height: 118px; padding: 14px; }
+  .crew-summary-card strong { font-size: 27px; }
+  .crew-section { padding: 17px 14px; }
+  .crew-section-heading h2 { font-size: 24px; }
+  .chart-row { grid-template-columns: 34px 1fr 38px; gap: 6px; }
+  .street-bookings-heading { padding: 17px 14px 12px; }
+  .street-table { font-size: 10px; }
+  .street-table th,
+  .street-table td { padding: 11px 8px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
