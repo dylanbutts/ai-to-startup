@@ -698,12 +698,12 @@ h1, h2, h3, p { margin-top: 0; }
 }
 
 .chart-bar {
+  display: block;
   height: 100%;
   border-radius: inherit;
-  background: #aebaa1;
+  background: var(--green);
 }
 
-.crew-section.grouped .chart-bar { background: #718f5b; }
 .chart-value { font-weight: 750; text-align: right; }
 
 .comparison-callout {
