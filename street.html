@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#f6f5ef">
-    <meta name="description" content="Your street's StreakFree wash day is coming soon.">
+    <meta name="description" content="See how many neighbours are joining Maple Ridge Drive's shared StreakFree wash day.">
     <title>Your street — StreakFree</title>
     <link rel="stylesheet" href="style.css">
   </head>
@@ -18,18 +18,169 @@
     </header>
 
     <main class="street-main">
-      <section class="street-placeholder">
-        <div class="placeholder-icon" aria-hidden="true"><span></span></div>
-        <p class="eyebrow">Coming soon to your neighbourhood</p>
-        <h1>Your street,<br><span>all fresh.</span></h1>
-        <p>We're getting this street ready for a shared wash day. Check back soon to see who's joining in and how much you could save together.</p>
-        <a class="button button-primary" href="index.html">Back to StreakFree <span aria-hidden="true">→</span></a>
-      </section>
+      <div class="street-page">
+        <section class="street-intro" aria-labelledby="street-title">
+          <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> This month's wash day</p>
+          <h1 id="street-title">Your street,<br><span>all fresh.</span></h1>
+          <p>Maple Ridge Drive is getting together for a shared wash day. The more homes join, the less everyone pays.</p>
+        </section>
+
+        <section class="street-dashboard" aria-label="Street wash day savings">
+          <div class="price-card">
+            <p class="metric-label">Price per home</p>
+            <p class="price-value" id="price-value">$210</p>
+            <p class="price-note">instead of $240 on your own</p>
+          </div>
+          <div class="street-stats">
+            <div class="stat-card">
+              <p class="metric-label">Crew travel time saved</p>
+              <p class="stat-value" id="time-saved">30 min</p>
+              <p class="stat-note">vs. separate visits</p>
+            </div>
+            <div class="stat-card">
+              <p class="metric-label">Street savings</p>
+              <p class="stat-value" id="street-savings">$90</p>
+              <p class="stat-note">combined savings so far</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="progress-card" aria-labelledby="progress-title">
+          <div class="progress-copy">
+            <div>
+              <p class="metric-label" id="progress-title">Next price drop</p>
+              <p class="progress-message" id="progress-message" aria-live="polite">2 more neighbours and everyone saves another $25</p>
+            </div>
+            <p class="home-count"><strong id="joined-count">3</strong> of 12 homes</p>
+          </div>
+          <div
+            class="progress-track"
+            id="progress-track"
+            role="progressbar"
+            aria-label="Progress toward the next price drop"
+            aria-valuemin="0"
+            aria-valuemax="2"
+            aria-valuenow="0"
+          >
+            <span class="progress-fill" id="progress-fill"></span>
+          </div>
+        </section>
+
+        <section class="street-homes" aria-labelledby="homes-title">
+          <div class="homes-heading">
+            <div>
+              <p class="eyebrow">Maple Ridge Drive</p>
+              <h2 id="homes-title">Your neighbours</h2>
+            </div>
+            <button class="button button-primary invite-button" id="invite-button" type="button">
+              Invite a neighbour <span aria-hidden="true">+</span>
+            </button>
+          </div>
+          <p class="homes-help">Tap a house to change its wash day status.</p>
+          <div class="house-grid" id="house-grid" aria-label="Homes on Maple Ridge Drive"></div>
+        </section>
+      </div>
     </main>
 
     <footer class="site-footer">
       <a class="wordmark wordmark-footer" href="index.html"><span class="wordmark-icon" aria-hidden="true">s</span><span>streakfree</span></a>
       <p>Student prototype for BSAD 281 at StFX. Not a real business.</p>
     </footer>
+
+    <script>
+      const homes = Array.from({ length: 12 }, (_, index) => ({
+        number: index + 1,
+        joined: index < 3,
+      }));
+      const priceTiers = [
+        { homes: 3, price: 210 },
+        { homes: 5, price: 185 },
+        { homes: 8, price: 165 },
+        { homes: 10, price: 150 },
+      ];
+
+      const houseGrid = document.querySelector('#house-grid');
+      const inviteButton = document.querySelector('#invite-button');
+      const priceValue = document.querySelector('#price-value');
+      const timeSaved = document.querySelector('#time-saved');
+      const streetSavings = document.querySelector('#street-savings');
+      const joinedCount = document.querySelector('#joined-count');
+      const progressMessage = document.querySelector('#progress-message');
+      const progressTrack = document.querySelector('#progress-track');
+      const progressFill = document.querySelector('#progress-fill');
+
+      function currentPrice(count) {
+        return priceTiers.reduce((price, tier) => count >= tier.homes ? tier.price : price, 240);
+      }
+
+      function render() {
+        const joined = homes.filter((home) => home.joined).length;
+        const price = currentPrice(joined);
+        const nextTier = priceTiers.find((tier) => joined < tier.homes);
+
+        priceValue.textContent = `$${price}`;
+        timeSaved.textContent = `${Math.max(0, joined - 1) * 15} min`;
+        streetSavings.textContent = `$${joined * (240 - price)}`;
+        joinedCount.textContent = joined;
+
+        if (nextTier) {
+          const previousTier = [...priceTiers].reverse().find((tier) => joined >= tier.homes);
+          const start = previousTier ? previousTier.homes : 0;
+          const needed = nextTier.homes - joined;
+          const range = nextTier.homes - start;
+          const progress = joined - start;
+          const nextPrice = nextTier.price;
+          progressMessage.textContent = `${needed} more ${needed === 1 ? 'neighbour' : 'neighbours'} and everyone saves another $${price - nextPrice}`;
+          progressTrack.setAttribute('aria-valuemax', range);
+          progressTrack.setAttribute('aria-valuenow', progress);
+          progressTrack.setAttribute('aria-valuetext', `${progress} of ${range} homes toward the next price drop`);
+          progressFill.style.width = `${(progress / range) * 100}%`;
+        } else {
+          progressMessage.textContent = 'Every home is in. Your street is at its best price.';
+          progressTrack.setAttribute('aria-valuemax', 1);
+          progressTrack.setAttribute('aria-valuenow', 1);
+          progressTrack.setAttribute('aria-valuetext', 'All homes are in; this is the best price');
+          progressFill.style.width = '100%';
+        }
+
+        houseGrid.replaceChildren(...homes.map((home) => {
+          const button = document.createElement('button');
+          button.className = `house-card${home.joined ? ' is-joined' : ''}`;
+          button.type = 'button';
+          button.setAttribute('aria-pressed', String(home.joined));
+          button.setAttribute('aria-label', `${home.number} Maple Ridge Drive, ${home.joined ? 'joined' : 'not joined'}. Click to ${home.joined ? 'remove from' : 'join'} wash day.`);
+          button.innerHTML = `
+            <span class="house-art" aria-hidden="true">
+              <span class="house-roof"></span>
+              <span class="house-body">
+                <span class="house-window"></span>
+                <span class="house-door"></span>
+                <span class="house-window"></span>
+              </span>
+            </span>
+            <span class="house-address">${home.number} Maple Ridge</span>
+            <span class="house-status">${home.joined ? 'Joined' : 'Not joined'}</span>
+          `;
+          button.addEventListener('click', () => {
+            home.joined = !home.joined;
+            render();
+          });
+          return button;
+        }));
+
+        inviteButton.disabled = joined === homes.length;
+        inviteButton.setAttribute('aria-label', joined === homes.length ? 'All neighbours have joined' : 'Invite a neighbour to join wash day');
+      }
+
+      inviteButton.addEventListener('click', () => {
+        const nextHome = homes.find((home) => !home.joined);
+        if (nextHome) {
+          nextHome.joined = true;
+          render();
+        }
+      });
+
+      render();
+    </script>
   </body>
 </html>

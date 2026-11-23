@@ -462,6 +462,103 @@ h1, h2, h3, p { margin-top: 0; }
   line-height: 1.8;
 }
 
+.street-main {
+  min-height: calc(100vh - 163px);
+  padding: 48px 24px 72px;
+  display: block;
+}
+
+.street-page { width: min(940px, 100%); margin: 0 auto; }
+.street-intro { max-width: 610px; margin: 0 auto 34px; text-align: center; }
+.street-intro .eyebrow { margin-bottom: 12px; }
+.street-intro h1 {
+  margin-bottom: 15px;
+  font-family: var(--serif);
+  font-size: clamp(48px, 7vw, 68px);
+  font-weight: 400;
+  letter-spacing: -3px;
+  line-height: 1;
+}
+.street-intro h1 span { color: var(--green); font-style: italic; }
+.street-intro > p:last-child {
+  max-width: 510px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.street-dashboard {
+  margin-bottom: 14px;
+  display: grid;
+  grid-template-columns: 0.9fr 1.6fr;
+  gap: 14px;
+}
+.price-card, .stat-card, .progress-card {
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--white);
+}
+.price-card { padding: 21px 24px; background: #edf2e3; }
+.metric-label { margin-bottom: 8px; color: var(--muted); font-size: 11px; font-weight: 700; }
+.price-value { margin-bottom: 2px; font-family: var(--serif); font-size: 44px; letter-spacing: -1.5px; line-height: 1.1; }
+.price-note, .stat-note { margin: 0; color: var(--muted); font-size: 11px; }
+.street-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.stat-card { padding: 20px; }
+.stat-value { margin-bottom: 4px; font-family: var(--serif); font-size: 29px; letter-spacing: -0.5px; }
+
+.progress-card { margin-bottom: 42px; padding: 18px 20px; }
+.progress-copy { margin-bottom: 15px; display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; }
+.progress-copy .metric-label { margin-bottom: 5px; }
+.progress-message { margin: 0; font-size: 14px; font-weight: 700; line-height: 1.45; }
+.home-count { margin: 0; color: var(--muted); font-size: 11px; white-space: nowrap; }
+.home-count strong { color: var(--ink); }
+.progress-track { height: 7px; overflow: hidden; border-radius: 10px; background: #e9ece3; }
+.progress-fill { width: 0; height: 100%; display: block; border-radius: inherit; background: #8bad57; transition: width 180ms ease; }
+
+.homes-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; }
+.homes-heading .eyebrow { margin-bottom: 7px; }
+.homes-heading h2 { margin-bottom: 0; font-family: var(--serif); font-size: 34px; font-weight: 400; letter-spacing: -1px; }
+.invite-button { min-height: 45px; padding: 0 16px; gap: 12px; cursor: pointer; }
+.invite-button:disabled { cursor: not-allowed; opacity: 0.65; transform: none; }
+.homes-help { margin: 9px 0 17px; color: var(--muted); font-size: 12px; }
+.house-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.house-card {
+  min-width: 0;
+  padding: 14px 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+  color: var(--ink);
+  font: inherit;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 160ms ease, background-color 160ms ease, transform 160ms ease;
+}
+.house-card:hover { transform: translateY(-2px); border-color: #b6c6a9; }
+.house-card:focus-visible, .invite-button:focus-visible { outline: 3px solid #9db97d; outline-offset: 3px; }
+.house-card.is-joined { border-color: #cbd9b7; background: #f0f4e8; }
+.house-art { height: 65px; margin: 0 auto 9px; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; }
+.house-roof {
+  width: 47px;
+  height: 34px;
+  margin-bottom: -2px;
+  transform: rotate(45deg) scale(0.73);
+  border-radius: 4px 0 0;
+  background: #74876a;
+}
+.house-card:nth-child(3n + 2) .house-roof { background: #8c7657; }
+.house-card:nth-child(3n) .house-roof { background: #526e5a; }
+.house-body { width: 68px; height: 37px; padding: 6px 6px 0; display: flex; align-items: flex-start; justify-content: space-between; background: #f0e2c7; }
+.house-card:nth-child(3n + 2) .house-body { background: #e8dcc5; }
+.house-card:nth-child(3n) .house-body { background: #f6edda; }
+.house-window { width: 11px; height: 12px; border: 2px solid #fff9ec; background: #adc8bd; }
+.house-door { width: 11px; height: 20px; align-self: flex-end; border-radius: 5px 5px 0 0; background: #9c7854; }
+.house-card.is-joined .house-door { background: #54745e; }
+.house-address { display: block; overflow: hidden; font-size: 11px; font-weight: 700; text-overflow: ellipsis; white-space: nowrap; }
+.house-status { margin-top: 5px; display: block; color: var(--muted); font-size: 10px; }
+.house-card.is-joined .house-status { color: var(--green); font-weight: 700; }
+
 @media (min-width: 1200px) {
   .hero { min-height: 570px; }
   .neighbourhood { height: 415px; }
@@ -491,6 +588,14 @@ h1, h2, h3, p { margin-top: 0; }
   .step h3 { padding-right: 35px; }
   .step p { max-width: 340px; }
   .site-footer { padding: 19px 20px; }
+  .street-main { padding: 35px 20px 56px; }
+  .street-intro { margin-bottom: 27px; }
+  .street-dashboard { grid-template-columns: 1fr; gap: 10px; }
+  .price-card { padding: 17px 19px; }
+  .street-stats { gap: 10px; }
+  .stat-card { padding: 16px; }
+  .progress-card { margin-bottom: 34px; padding: 16px; }
+  .house-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9px; }
 }
 
 @media (max-width: 420px) {
@@ -516,6 +621,12 @@ h1, h2, h3, p { margin-top: 0; }
   .route-two { top: 84px; right: 5%; }
   .site-footer { align-items: flex-start; flex-direction: column; gap: 10px; }
   .site-footer p { text-align: left; }
+  .street-main { padding-right: 16px; padding-left: 16px; }
+  .street-intro h1 { font-size: 50px; }
+  .homes-heading { align-items: flex-start; flex-direction: column; gap: 13px; }
+  .homes-heading h2 { font-size: 30px; }
+  .invite-button { width: 100%; }
+  .progress-copy { align-items: flex-start; flex-direction: column; gap: 8px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
