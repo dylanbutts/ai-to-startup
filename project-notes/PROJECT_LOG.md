@@ -36,6 +36,18 @@
 - What broke, and how I fixed it: the dashboard first showed up as plain unstyled text. Then the bar charts showed only empty grey tracks, and my first fix didn't work. Copilot also sat waiting on "confirmations pending" until I approved them. I fixed the bars by describing exactly what I saw and asking Copilot to explain the cause. [the reason Copilot gave]
 - Committed? yes -- "Added crew dashboard and polish fixes", "Fixed empty bar charts on crew dashboard", "Fixed bar fill on crew dashboard"
 
+- ### Session -- Nov 24 (session 4)-- driver: Dylan
+
+- Goal for this session: draft business case sections 1–3 (the idea, where IT creates value, network effects)
+- Key prompts I gave AI:
+  1. Asked Claude to give me key ideas on sections 1–3 from my business idea, my prototype and my experience running a house washing business 
+  2. I made sure that operations and marketing and sales were apart of the value chain
+  3. Uploaded the Network Effects lecture slides and Gallaugher chapter 10 and asked whether section 3 matched the course terms
+- What worked: the key points followed the guide's structure, and checking it against the lecture slides showed which course terms to use (one-sided market, same-side exchange benefits, congestion effect, seeding the market, subsidizing adoption)
+- What I changed when checking the draft: raised the solo price to $350 to match what I actually charge, widened the customer to cities and towns in Nova Scotia, and added that crews lose time setting up their gear at every scattered job. 
+- What broke, and how I fixed it: my edits made the prices inconsistent ($350 alone in section 1, $240 alone in section 3). I fixed it by explaining how other business's like mine would charge $350, the base price for this website is only $240
+- Committed? yes -- "Drafted business case sections 1-3"
+
 ## Things that broke
 
 | Date | What went wrong | What I tried | What finally fixed it |
@@ -50,7 +62,13 @@
 
 | Feature I faked or skipped | Why a real company would need it | How hard / expensive? |
 |----------------------------|----------------------------------|-----------------------|
-|                            |                                  |                       |
+| Real accounts and logins | Each homeowner needs their own account to book, see their street and manage their visit; crews need a separate login to see their schedule | Medium: a login service (SaaS), roughly free at first and a few hundred dollars a month at scale |
+| Shared booking database | On the "Your street" page, clicking a house only changes it in my own browser; real neighbours need to see each other's bookings live so the price drops for everyone | Medium: a hosted database (PaaS) plus a developer to connect it, about $25–100/month to start |
+| Real address and street matching | The prototype uses a made-up street with 12 fake houses; a real version has to check that people actually live on the same street before giving them the group price | Medium: a mapping/address API (SaaS) charged per lookup |
+| Online payments | Right now nobody pays; a real version needs to take payment at booking, and charge the right tier once the street's final count is known | Medium: a payment processor (SaaS) taking about 3% of each job, plus work to handle refunds and price changes |
+| Real neighbour invites | The "Invite a neighbour" button just adds a fake house; a real one would send a text or email invite with a sign-up link | Low to medium: a texting/email service (SaaS), a few cents per message |
+| Crew scheduling from real data | The Crew dashboard uses invented numbers; a real version would build each crew's route from actual bookings and track real driving and washing times | High: custom software or a route-planning service, plus my time making sure it matches how crews really work |
+| Privacy controls and support | Neighbours could see who on their street booked; a real company needs privacy settings, a privacy policy and a way for customers to cancel or complain | Medium: staff time, a support inbox, and legal help with the privacy policy |
 
 ## Reflection
 
