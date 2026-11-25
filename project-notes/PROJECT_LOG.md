@@ -48,6 +48,17 @@
 - What broke, and how I fixed it: my edits made the prices inconsistent ($350 alone in section 1, $240 alone in section 3). I fixed it by explaining how other business's like mine would charge $350, the base price for this website is only $240
 - Committed? yes -- "Drafted business case sections 1-3"
 
+### Session 5 -- Nov 25 -- driver: Dylan
+
+- Goal for this session: finish the business case by drafting sections 4–6 (can it be copied, cloud and operations, risks and ethics) and add the AI use line
+- Key prompts I gave AI:
+  1. Asked Claude to draft sections 4–6 from my business, my prototype and the course concepts (VRIN, staying power, switching costs, SaaS/PaaS/IaaS)
+  2. Asked Claude for an AI use line that honestly describes how I used AI on the business case
+- What worked: the moat section tests three resources against VRIN (my existing customers, street-level booking data, and equipment), and is honest that equipment fails VRIN and that switching costs are low
+- What I changed when checking the draft: filled in my real number of customers, repeat customers and equipment. [Add anything else you changed]
+- What broke, and how I fixed it: nothing broke on the site this session. [If you fixed the price mismatch between the business case and the street page, say how here]
+- Committed? yes -- "Drafted business case sections 4-6"  
+
 ## Things that broke
 
 | Date | What went wrong | What I tried | What finally fixed it |
