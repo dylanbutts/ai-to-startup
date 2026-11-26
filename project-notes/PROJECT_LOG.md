@@ -6,7 +6,7 @@
 
 ## Work sessions
 
-### Session -- Nov 23 -- driver: Dylan
+### Session 1 -- Nov 23 -- driver: Dylan
 
 - Goal for this session: set up GitHub, create the repo, and get a first version of the homepage live on GitHub Pages
 - Key prompts I gave Copilot:
@@ -15,16 +15,16 @@
 - What broke, and how I fixed it: I first typed my prompt into the GitHub Copilot desktop app, which wasn't connected to any repo, so I switched to Copilot Chat inside a Codespace. My first commit failed with "no staged changes"; I clicked "Always" to stage and commit everything. I also checked index.html and style.css for external links (none found).
 - Committed? yes -- "First homepage and street page"
 
-  ### Session -- Nov 23 (session 2) -- driver: Dylan
+  ### Session 2 -- Nov 23 -- driver: Dylan
 
 - Goal for this session: build an interactive "Your street" page that shows the network effect, with the price per home dropping as more neighbours join
 - Key prompts I gave Copilot:
   1. "Turn street.html into an interactive "Your street" page for StreakFree. Show a fictional street called Maple Ridge Drive with 12 houses drawn as simple cards. Some houses have already joined this month's wash day (start with 3). The visitor can click a house to mark it as joined or not joined, and there's an "Invite a neighbour" button that adds one more joined house. As more houses join, update the price per home in tiers ($240 alone, $210 at 3, $185 at 5, $165 at 8, $150 at 10+), a progress bar to the next price drop, crew travel time saved, total savings for the street, and a message like "2 more neighbours and everyone saves another $25". Plain HTML, CSS and JavaScript only, no external libraries, match style.css, work on a phone, keep the student prototype footer."
-- What worked: [what worked when you tested it, e.g. clicking houses changed the price at the right tiers]
-- What broke, and how I fixed it: My Codespace didn't have PROJECT_LOG.md because I created it on github.com; I ran "git pull" in the terminal to bring it down. [Add anything that broke while testing the street page, or write "Nothing else broke"]
+- What worked:clicking houses changed the price at the right tiers. 
+- What broke, and how I fixed it: My Codespace didn't have PROJECT_LOG.md because I created it on github.com; I ran "git pull" in the terminal to bring it down. 
 - Committed? yes -- "Added interactive Your street page"
 
-- ### Session -- Nov 23 (session 3) -- driver: Dylan
+- ### Session 3 -- Nov 23 -- driver: Dylan
 
 - Goal for this session: add a crew dashboard showing the crew side of the business and the data StreakFree collects, then do a polish pass
 - Key prompts I gave Copilot:
@@ -32,11 +32,11 @@
   2. "Check every page for broken links, buttons that don't do anything, leftover placeholder text, and anything that doesn't fit on a phone screen. List what you find before changing anything." then "Fix those"
   3. "On crews.html, all the bar charts show only the empty grey track... Make each bar fill to a width proportional to its value. Use the same scale for both weeks..."
   4. "The bars on crews.html are still showing as empty grey tracks on the live site... explain why it isn't showing, and fix only that."
-- What worked: the dashboard data and layout, and the side-by-side comparison of scattered vs grouped weeks. [anything the polish pass fixed]
-- What broke, and how I fixed it: the dashboard first showed up as plain unstyled text. Then the bar charts showed only empty grey tracks, and my first fix didn't work. Copilot also sat waiting on "confirmations pending" until I approved them. I fixed the bars by describing exactly what I saw and asking Copilot to explain the cause. [the reason Copilot gave]
+- What worked: the dashboard data and layout, and the side-by-side comparison of scattered vs grouped weeks. 
+- What broke, and how I fixed it: the dashboard first showed up as plain unstyled text. Then the bar charts showed only empty grey tracks, and my first fix didn't work. Copilot also sat waiting on "confirmations pending" until I approved them. I fixed the bars by describing exactly what I saw and asking Copilot to explain the cause. 
 - Committed? yes -- "Added crew dashboard and polish fixes", "Fixed empty bar charts on crew dashboard", "Fixed bar fill on crew dashboard"
 
-- ### Session -- Nov 24 (session 4)-- driver: Dylan
+- ### Session 4 -- Nov 24 -- driver: Dylan
 
 - Goal for this session: draft business case sections 1–3 (the idea, where IT creates value, network effects)
 - Key prompts I gave AI:
@@ -52,11 +52,11 @@
 
 - Goal for this session: finish the business case by drafting sections 4–6 (can it be copied, cloud and operations, risks and ethics) and add the AI use line
 - Key prompts I gave AI:
-  1. Asked Claude to draft sections 4–6 from my business, my prototype and the course concepts (VRIN, staying power, switching costs, SaaS/PaaS/IaaS)
+  1. Asked Claude to make key points and drop notes on sections 4–6 from my business, my prototype and the course concepts (VRIN, staying power, switching costs, SaaS/PaaS/IaaS)
   2. Asked Claude for an AI use line that honestly describes how I used AI on the business case
 - What worked: the moat section tests three resources against VRIN (my existing customers, street-level booking data, and equipment), and is honest that equipment fails VRIN and that switching costs are low
-- What I changed when checking the draft: filled in my real number of customers, repeat customers and equipment. [Add anything else you changed]
-- What broke, and how I fixed it: nothing broke on the site this session. [If you fixed the price mismatch between the business case and the street page, say how here]
+- What I changed when checking the draft: filled in my real number of customers, repeat customers and equipment. 
+- What broke, and how I fixed it: nothing broke on the site this session. 
 - Committed? yes -- "Drafted business case sections 4-6"  
 
 ## Things that broke
