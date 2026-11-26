@@ -83,6 +83,20 @@
 
 ## Reflection
 
-**After session 1 (Nov 23):** The most surprising part of today was how little of my time went into the website itself. Copilot built a full homepage, a second page and the styling from one prompt in about a minute, and GitHub Pages put it online on the first try. Most of my time went into setup instead: creating a GitHub account, figuring out that the Copilot desktop app wasn't connected to my repo, making the project files by hand because I didn't have the template, and learning what "staging" a commit means.
+# 1. What surprised you most about building software with AI? 
 
-That tells me something about the business side. If someone with no coding background can get a professional-looking site live in an afternoon, then the website gives StreakFree no advantage at all. Any competitor could copy it just as fast. Whatever makes the business hard to copy has to come from outside the site: the crews, the customers on each street, and what we learn from running jobs. I'll test that idea properly in my "Can it be copied?" section.
+How little of my time went into the actual website. The first prompt I gave it gave me a homepage, a second page and all the styling in only a minute, and it was live on GitHub Pages within 10 minutes. I've never written code, so I expected the building part to take most of the time. Instead, most of my time went into everything around it: setting up GitHub, figuring out that the Copilot desktop app wasn't connected to my repo, and learning what staging a commit or running git pull even means. 
+
+# 2. Which parts were easy, and which were hard? Why do you think that is? 
+
+Making a website that looked good was definitely the easiest part. Getting it to work exactly right was harder. The crew dashboard is the best example. It first showed up as plain text with no styling, then the bar charts showed empty grey tracks, and my first fix didn't change anything. Copilot also sat there for a while waiting on "confirmations pending" before I realized it needed me to approve something. What finally worked was when I described exactly what I saw on the screen and asked Copilot to explain why the bars were empty before fixing them. Vague prompts like "fix those" didn't get good results. 
+
+I think the AI is good at producing a full first version from a clear description, but it can't see the live site the way I do. It only knows what I tell it. So the hard part was being a good tester and describing problems precisely, not actually writing the code. The business case was also harder than the site, because the AI couldn't know my real prices or customers. I had to fix numbers that didn't match between sections, and the site still needed to agree with them. 
+
+# 3. If a competitor had the same AI tool, how long would it take them to copy your site? 
+
+ I built three working pages over four sessions in four days with no coding background, and a big part of that was learning the tools. Someone who already knows GitHub could rebuild StreakFree's site in less than an hour from just looking at mine. 
+
+That's the main business lesson for me. The website gives StreakFree no real advantage, because AI made it cheap for anyone to build. What a competitor can't copy in a weekend is what's behind it: the customers I already have on each street, the booking and route data that builds up every season, and the trust that comes from doing the work. If software keeps getting this easy to make, the value moves more towards the things software can't produce. 
+
+ 
